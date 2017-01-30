@@ -1,6 +1,9 @@
 bower_components/
 node_modules/
 
+# minified js
+all-min.js
+
 # Electron stuff
 fonts/
 Glowing\ Bear-*/

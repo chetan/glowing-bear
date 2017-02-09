@@ -40,6 +40,7 @@ weechat.controller('WeechatCtrl', ['$rootScope', '$scope', '$store', '$timeout',
         'savepassword': false,
         'autoconnect': false,
         'nonicklist': utils.isMobileUi(),
+        'nosidebar': false,
         'noembed': true,
         'onlyUnread': false,
         'filterMessages': false,
@@ -684,6 +685,14 @@ weechat.controller('WeechatCtrl', ['$rootScope', '$scope', '$store', '$timeout',
         }
         return !buffer.hidden;
     };
+
+    settings.addCallback('nosidebar', function() {
+      if (utils.isMobileUi() && settings.nosidebar) {
+          if ($scope.isSidebarVisible()) {
+              $scope.hideSidebar();
+          }
+      }
+    });
 
     // Watch model and update show setting when it changes
     settings.addCallback('nonicklist', function() {

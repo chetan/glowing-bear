@@ -48,6 +48,7 @@ weechat.controller('WeechatCtrl', ['$rootScope', '$scope', '$store', '$timeout',
         'autoconnect': false,
         'nonicklist': utils.isMobileUi(),
         'alwaysnicklist': false, // only significant on mobile
+        'nosidebar': false,
         'noembed': true,
         'onlyUnread': false,
         'filterMessages': false,
@@ -755,6 +756,14 @@ weechat.controller('WeechatCtrl', ['$rootScope', '$scope', '$store', '$timeout',
             return buffer.fullName.toLowerCase().indexOf($scope.search.toLowerCase()) !== -1;
         }
     };
+
+    settings.addCallback('nosidebar', function() {
+      if (utils.isMobileUi() && settings.nosidebar) {
+          if ($scope.isSidebarVisible()) {
+              $scope.hideSidebar();
+          }
+      }
+    });
 
     // Watch model and update show setting when it changes
     settings.addCallback('nonicklist', function() {

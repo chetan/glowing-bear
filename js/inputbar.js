@@ -204,6 +204,7 @@ weechat.directive('inputBar', function() {
                     connection.sendHotlistClear();
                 }
 
+                $scope.getInputNode().blur();
                 $scope.getInputNode().focus();
             };
 

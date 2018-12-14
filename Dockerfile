@@ -7,8 +7,7 @@ RUN yarn
 
 COPY --chown=app:app . /opt/app
 RUN ./get-cdn-js.sh \
-#RUN true \
-  && yarn run minify \
+  && yarn run min \
   && ./replace-js.sh
 
 FROM nginx:latest

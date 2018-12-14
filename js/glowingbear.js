@@ -50,6 +50,7 @@ weechat.controller('WeechatCtrl', ['$rootScope', '$scope', '$store', '$timeout',
         'alwaysnicklist': false, // only significant on mobile
         'noembed': true,
         'onlyUnread': false,
+        'filterMessages': false,
         'hotlistsync': true,
         'orderbyserver': true,
         'useFavico': !utils.isCordova(),

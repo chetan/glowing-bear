@@ -10,7 +10,7 @@ RUN ./get-cdn-js.sh \
   && yarn run min \
   && ./replace-js.sh
 
-FROM nginx:latest
+FROM nginx:alpine
 
 COPY --from=build /opt/app/min.html /usr/share/nginx/html/index.html
 COPY --from=build /opt/app/min.js /usr/share/nginx/html/
